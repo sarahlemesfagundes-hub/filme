@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0f0f0f;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: #1a1a1a;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    color: #e50914;
+    font-family: 'Playfair Display', serif;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #e50914;
+}
+
+/* Hero */
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+button {
+    background-color: #e50914;
+    color: white;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #f40612;
+    transform: scale(1.05);
+}
+
+/* Sections */
+.section {
+    padding: 80px 0;
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+/* Cards */
+.card {
+    background-color: #1f1f1f;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 30px rgba(229, 9, 20, 0.3);
+}
+
+.card img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.2rem;
+}
+
+.card-content h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.rating {
+    color: #ffd700;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+/* Formulário */
+.review-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #1f1f1f;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.review-form input,
+.review-form textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 1rem;
+    background-color: #2a2a2a;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+}
+
+.review-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.stars {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 1rem 0;
+    cursor: pointer;
+}
+
+.stars span {
+    color: #555;
+    transition: color 0.2s;
+}
+
+.stars span:hover,
+.stars span.active {
+    color: #ffd700;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #1f1f1f;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close:hover {
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-color: #0a0a0a;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+    nav ul {
+        gap: 1rem;
+        font-size: 0.95rem;
+    }
+}

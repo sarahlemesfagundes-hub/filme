@@ -1,1 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineRate - Avaliações de Filmes e Séries</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>CineRate</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#filmes">Filmes</a></li>
+                    <li><a href="#series">Séries</a></li>
+                    <li><a href="#avaliacoes">Avaliar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Descubra, Avalie e Compartilhe</h2>
+            <p>Filmes e séries épicos: Marvel, Senhor dos Anéis, Harry Potter, Nárnia e muito mais.</p>
+            <button onclick="showFeatured()">Explorar Agora</button>
+        </div>
+    </section>
+
+    <section id="filmes" class="section">
+        <div class="container">
+            <h2>Filmes em Destaque</h2>
+            <div class="grid">
+                <div class="card" onclick="showDetails('endgame')">
+                    <img src="https://picsum.photos/id/1015/300/400" alt="Endgame">
+                    <div class="card-content">
+                        <h3>Vingadores: Endgame</h3>
+                        <div class="rating">9.0 ★</div>
+                        <p>Marvel Studios</p>
+                    </div>
+                </div>
+                <div class="card" onclick="showDetails('lotr')">
+                    <img src="https://picsum.photos/id/102/300/400" alt="Senhor dos Anéis">
+                    <div class="card-content">
+                        <h3>O Senhor dos Anéis: O Retorno do Rei</h3>
+                        <div class="rating">9.5 ★</div>
+                        <p>Peter Jackson</p>
+                    </div>
+                </div>
+                <div class="card" onclick="showDetails('narnia')">
+                    <img src="https://picsum.photos/id/1033/300/400" alt="Nárnia">
+                    <div class="card-content">
+                        <h3>As Crônicas de Nárnia</h3>
+                        <div class="rating">8.4 ★</div>
+                        <p>Fantasy Clássico</p>
+                    </div>
+                </div>
+                <div class="card" onclick="showDetails('harry')">
+                    <img src="https://picsum.photos/id/106/300/400" alt="Harry Potter">
+                    <div class="card-content">
+                        <h3>Harry Potter e as Relíquias da Morte Pt.2</h3>
+                        <div class="rating">8.9 ★</div>
+                        <p>J.K. Rowling</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="series" class="section">
+        <div class="container">
+            <h2>Séries em Destaque</h2>
+            <div class="grid">
+                <div class="card" onclick="showDetails('mandalorian')">
+                    <img src="https://picsum.photos/id/1074/300/400" alt="Mandalorian">
+                    <div class="card-content">
+                        <h3>The Mandalorian</h3>
+                        <div class="rating">8.8 ★</div>
+                        <p>Star Wars</p>
+                    </div>
+                </div>
+                <div class="card" onclick="showDetails('got')">
+                    <img src="https://picsum.photos/id/201/300/400" alt="Game of Thrones">
+                    <div class="card-content">
+                        <h3>Game of Thrones</h3>
+                        <div class="rating">9.2 ★</div>
+                        <p>HBO</p>
+                    </div>
+                </div>
+                <div class="card" onclick="showDetails('stranger')">
+                    <img src="https://picsum.photos/id/251/300/400" alt="Stranger Things">
+                    <div class="card-content">
+                        <h3>Stranger Things</h3>
+                        <div class="rating">8.7 ★</div>
+                        <p>Netflix</p>
+                    </div>
+                </div>
+                <div class="card" onclick="showDetails('theboys')">
+                    <img src="https://picsum.photos/id/180/300/400" alt="The Boys">
+                    <div class="card-content">
+                        <h3>The Boys</h3>
+                        <div class="rating">8.9 ★</div>
+                        <p>Prime Video</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="avaliacoes" class="section">
+        <div class="container">
+            <h2>Faça Sua Avaliação</h2>
+            <div class="review-form">
+                <input type="text" id="title" placeholder="Nome do filme ou série">
+                <textarea id="review-text" placeholder="Escreva sua opinião aqui..."></textarea>
+                
+                <div class="stars" id="stars">
+                    <span data-value="1">★</span>
+                    <span data-value="2">★</span>
+                    <span data-value="3">★</span>
+                    <span data-value="4">★</span>
+                    <span data-value="5">★</span>
+                </div>
+                
+                <button onclick="submitReview()">Enviar Avaliação</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CineRate - Sua plataforma de avaliações</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentRating = 0;
+
+        // Seleção de estrelas
+        document.querySelectorAll('.stars span').forEach(star => {
+            star.addEventListener('click', () => {
+                currentRating = parseInt(star.getAttribute('data-value'));
+                document.querySelectorAll('.stars span').forEach(s => {
+                    s.style.color = s.getAttribute('data-value') <= currentRating ? '#ffd700' : '#555';
+                });
+            });
+        });
+
+        function showDetails(id) {
+            const details = {
+                endgame: `<h2>Vingadores: Endgame</h2><p><strong>Nota:</strong> 9.0/10</p><p>O épico final da Saga do Infinito da Marvel. Um marco no cinema de super-heróis.</p>`,
+                lotr: `<h2>O Senhor dos Anéis: O Retorno do Rei</h2><p><strong>Nota:</strong> 9.5/10</p><p>O grandioso final da trilogia de Tolkien. 11 Oscars, incluindo Melhor Filme.</p>`,
+                narnia: `<h2>As Crônicas de Nárnia</h2><p><strong>Nota:</strong> 8.4/10</p><p>Aventura fantástica baseada nos livros de C.S. Lewis.</p>`,
+                harry: `<h2>Harry Potter e as Relíquias da Morte - Parte 2</h2><p><strong>Nota:</strong> 8.9/10</p><p>O emocionante final da saga bruxa mais famosa do mundo.</p>`,
+                mandalorian: `<h2>The Mandalorian</h2><p><strong>Nota:</strong> 8.8/10</p><p>Uma das melhores séries de Star Wars.</p>`,
+                got: `<h2>Game of Thrones</h2><p><strong>Nota:</strong> 9.2/10</p><p>Dragões, política e batalhas épicas.</p>`,
+                stranger: `<h2>Stranger Things</h2><p><strong>Nota:</strong> 8.7/10</p><p>Nostalgia dos anos 80 com terror e amizade.</p>`,
+                theboys: `<h2>The Boys</h2><p><strong>Nota:</strong> 8.9/10</p><p>Super-heróis corruptos e sátira afiada.</p>`
+            };
+            
+            document.getElementById('modal-body').innerHTML = details[id] || "<h2>Conteúdo em breve</h2>";
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function showFeatured() {
+            showDetails('lotr');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function submitReview() {
+            const title = document.getElementById('title').value;
+            const text = document.getElementById('review-text').value;
+            
+            if (title && text && currentRating > 0) {
+                alert(`✅ Avaliação enviada com sucesso!\n\nFilme/Série: ${title}\nNota: ${currentRating} estrelas`);
+                document.getElementById('title').value = '';
+                document.getElementById('review-text').value = '';
+                currentRating = 0;
+                document.querySelectorAll('.stars span').forEach(s => s.style.color = '#555');
+            } else {
+                alert("Por favor, preencha todos os campos e dê uma nota.");
+            }
+        }
+
+        // Fecha modal clicando fora
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) closeModal();
+        }
+    </script>
+</body>
+</html>
