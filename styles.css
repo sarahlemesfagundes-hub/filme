@@ -57,7 +57,7 @@ nav a:hover {
 /* Hero */
 .hero {
     height: 70vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://i.pinimg.com/736x/2a/eb/6f/2aeb6f4180a568466343e8214b44979b.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     text-align: center;
