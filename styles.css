@@ -33,7 +33,7 @@ header .container {
 }
 
 .logo h1 {
-    color: #e50914;
+    color: #7ec075;
     font-family: 'Playfair Display', serif;
 }
 
@@ -51,7 +51,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #e50914;
+    color: #78ca5f;
 }
 
 /* Hero */
@@ -80,7 +80,7 @@ nav a:hover {
 }
 
 button {
-    background-color: #e50914;
+    background-color: #87bd79;
     color: white;
     padding: 14px 32px;
     font-size: 1.1rem;
@@ -91,7 +91,7 @@ button {
 }
 
 button:hover {
-    background-color: #f40612;
+    background-color: #8bc484;
     transform: scale(1.05);
 }
 
@@ -125,7 +125,7 @@ button:hover {
 
 .card:hover {
     transform: translateY(-12px);
-    box-shadow: 0 20px 30px rgba(229, 9, 20, 0.3);
+    box-shadow: 0 20px 30px rgba(38, 117, 55, 0.3);
 }
 
 .card img {
@@ -183,7 +183,7 @@ button:hover {
 }
 
 .stars span {
-    color: #555;
+    color: #2d492c;
     transition: color 0.2s;
 }
 
